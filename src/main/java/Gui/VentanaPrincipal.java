@@ -1,9 +1,12 @@
 package Gui;
 
+import Dominio.DetalleDesastre;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class VentanaPrincipal extends  JFrame implements ActionListener {
 
@@ -11,7 +14,7 @@ public class VentanaPrincipal extends  JFrame implements ActionListener {
 
     private JPanel panelIngresarDatos, panelMostrarDatos;
     private JButton botonAgregar;
-    private JLabel etiquetaPedirDatos, etiquetaAño, etiquetaLugar, etiquetaMagnitud, etiquetaTipoDesastre, etiquetaPersonasAfectadas;
+    private JLabel etiquetaPedirDatos, etiquetaAño, etiquetaLugar, etiquetaMagnitud, etiquetaTipoDesastre, etiquetaPersonasAfectadas, etiquetaRegistro, mostrar;
     private JTextField cajaTextoAño, cajaTextoLugar, cajaTextoMagnitud, cajaTextoTipoDesastre, cajaTextoPersonasAfectadas;
     private JCheckBox checkBox;
 
@@ -44,11 +47,13 @@ public class VentanaPrincipal extends  JFrame implements ActionListener {
         panelIngresarDatos.setLayout(null);
         add(panelIngresarDatos);
 
+        /*
         panelMostrarDatos = new JPanel();
         panelMostrarDatos.setLayout(new FlowLayout());
         panelMostrarDatos.setBounds(0,300, 600, 300);
         panelMostrarDatos.setBackground(Color.blue);
         add(panelMostrarDatos);
+         */
     }
 
     private void crearBoton() {
@@ -82,6 +87,10 @@ public class VentanaPrincipal extends  JFrame implements ActionListener {
         etiquetaPersonasAfectadas = modelo.crearEtiqueta(etiquetaPersonasAfectadas, "Cant. Afectados: ");
         etiquetaPersonasAfectadas.setBounds(20, 140, anchoEtiqueta, altoEtiqueta);
         panelIngresarDatos.add(etiquetaPersonasAfectadas);
+
+        etiquetaRegistro = modelo.crearEtiqueta(etiquetaRegistro, "Registros:");
+        etiquetaRegistro.setBounds(20, 220, anchoEtiqueta, altoEtiqueta);
+        panelIngresarDatos.add(etiquetaRegistro);
     }
 
     private void crearCajaTexto() {
@@ -107,10 +116,19 @@ public class VentanaPrincipal extends  JFrame implements ActionListener {
     }
 
     private void crearCheckbox() {
+        String[] desastre = {cajaTextoAño.getText(),cajaTextoLugar.getText(), cajaTextoMagnitud.getText(), cajaTextoTipoDesastre.getText(), cajaTextoPersonasAfectadas.getText()};
+        //DetalleDesastre detalle = new DetalleDesastre(cajaTextoAño.getText(),cajaTextoLugar.getText(), cajaTextoMagnitud.getText(), cajaTextoTipoDesastre.getText(), cajaTextoPersonasAfectadas.getText());
+        /*
         checkBox = new JCheckBox(cajaTextoAño.getText());
         checkBox.setBounds(100, 250, 300, 20);
         checkBox.addActionListener(this);
         panelIngresarDatos.add(checkBox);
+        panelIngresarDatos.updateUI();
+         */
+
+        mostrar = modelo.crearEtiqueta(mostrar, Arrays.toString(desastre));
+        mostrar.setBounds(20,240, 400, 20);
+        panelIngresarDatos.add(mostrar);
         panelIngresarDatos.updateUI();
     }
 

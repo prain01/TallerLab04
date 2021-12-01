@@ -2,15 +2,12 @@ package Dominio;
 
 import java.util.ArrayList;
 
-public class DetalleDesastre {
+public class DetalleDesastre extends Desastre {
 
-    private String tipoDesastre;
-    private String personasAfectadas;
-    private ArrayList<Desastre> listaDesastres;
+    private ArrayList<String> listaDesastres;
 
-    public DetalleDesastre(String tipoDesastre, String personasAfectadas, ArrayList<Desastre> listaDesastres) {
-        this.tipoDesastre = tipoDesastre;
-        this.personasAfectadas = personasAfectadas;
-        this.listaDesastres = listaDesastres;
+    public DetalleDesastre(String año, String lugar, String magnitud, String tipoDesastre, String personasAfectadas) {
+        super(año, lugar, magnitud, tipoDesastre, personasAfectadas);
+
     }
 }
