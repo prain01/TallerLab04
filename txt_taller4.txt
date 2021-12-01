@@ -1,0 +1,18 @@
+Fig 1. Evolución del número de desastres naturales
+
+Vamoa a crear un programa, que usando la figura Nº1, y usando el metodo detalleDesastre()
+mostraremos una lista con el año y lugar del desastre.
+
+Packege Dominio: 
+	- Desastre -> clase madre
+		- Año
+		- lugar
+		- magnitud
+	- DetalleDesastre -> clase hija
+		- tipoDesastre
+		- personasAfectadas
+Packege Gui:
+	- VentanaPrincipal	
+	- VentanaModelo 	
+Packege Ejecutar: 
+	- Main
